@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyFragmentApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="detail_text_detail">I have no details to show you…</string>
+    <string name="text_happy_button">SHOW HAPPY DETAIL</string>
+    <string name="text_sad_button">SHOW SAD DETAIL</string>
+    <string name="text_horror_button">SHOW HORRIBLE DETAIL</string>
+    <string name="text_happy">You\'re a very good programmer !</string>
+    <string name="text_sad">I do believe that Jon Snow is going to die in next season…</string>
+    <string name="text_horror">Maybe Game of Thrones next season will get back in 2040 ?</string>
+    <string name="text_fail">Nope</string>
+</resources>

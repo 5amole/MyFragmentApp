@@ -9,17 +9,21 @@ import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
 
 import android.os.Bundle;
 
-public class DetailActivity extends AppCompatActivity {
-
-    // 1 - Create static variable to identify Intent
-    public static final String EXTRA_BUTTON_TAG = "com.openclassrooms.myfragmentapp.Controllers.Activities.DetailActivity.EXTRA_BUTTON_TAG";
+public class DetailActivity extends BaseActivity {
 
     private DetailFragment mDetailFragment;
+
+    // --------------
+    // BASE METHODS
+    // --------------
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.activity_detail;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
 
         configureToolbar();
         configureAndShowDetailFragment();

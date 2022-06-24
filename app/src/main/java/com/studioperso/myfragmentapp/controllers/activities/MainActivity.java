@@ -11,15 +11,22 @@ import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
 import com.studioperso.myfragmentapp.controllers.fragments.MainFragment;
 
-public class MainActivity extends AppCompatActivity implements MainFragment.OnButtonClickedListener {
+public class MainActivity extends BaseActivity implements MainFragment.OnButtonClickedListener {
 
     private MainFragment mMainFragment;
     private DetailFragment mDetailFragment;
 
+    // --------------
+    // BASE METHODS
+    // --------------
+    @Override
+    protected int getFragmentLayout() {
+        return R.layout.activity_main;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         configureAndShowMainFragment();
         configureAndShowDetailFragment();

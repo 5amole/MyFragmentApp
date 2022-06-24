@@ -1,8 +1,6 @@
 package com.studioperso.myfragmentapp.controllers.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +14,12 @@ import androidx.viewbinding.ViewBinding;
 import icepick.Icepick;
 
 
-public abstract class BaseFragment<T extends ViewBinding> extends Fragment {
+public abstract class BaseFragment<VB extends ViewBinding> extends Fragment {
 
-    protected T mBinding;
-    protected Context context;
+    protected VB mBinding;
     // 1 - Force developer implement those methods
-    protected abstract BaseFragment<T> newInstance();
-    protected abstract T getBinding(LayoutInflater inflater, ViewGroup container);
+    protected abstract BaseFragment<VB> newInstance();
+    protected abstract VB getBinding(LayoutInflater inflater, ViewGroup container);
     protected abstract void configureDesign();
     protected abstract void updateDesign();
 
@@ -30,7 +27,6 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // 2 - Get layout identifier from abstract method
-//        View view = inflater.inflate(getFragmentLayout(), container, false);
         mBinding = getBinding(inflater, container);
         // Update Design (Developer will call this method instead of override onActivityCreated())
         this.configureDesign();
@@ -56,19 +52,6 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.e(getClass().getSimpleName(),"Bind base ! " + mBinding);
         mBinding = null;
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        this.context = context;
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        this.context = null;
     }
 }

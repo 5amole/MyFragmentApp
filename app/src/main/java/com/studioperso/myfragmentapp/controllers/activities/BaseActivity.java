@@ -8,6 +8,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     public static final String EXTRA_BUTTON_TAG = "com.openclassrooms.myfragmentapp.Controllers.Activities.DetailActivity.EXTRA_BUTTON_TAG";
 
     protected abstract int getFragmentLayout();
+    protected abstract void configureDesign();
+    protected abstract void updateDesign();
 
 
     @Override
@@ -15,5 +17,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getFragmentLayout());
 
+        configureDesign();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        updateDesign();
     }
 }

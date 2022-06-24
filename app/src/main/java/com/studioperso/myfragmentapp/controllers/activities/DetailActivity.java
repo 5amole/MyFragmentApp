@@ -22,16 +22,13 @@ public class DetailActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void configureDesign() {
         configureToolbar();
         configureAndShowDetailFragment();
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void updateDesign() {
         updateDetailFragmentTextWithTag();
     }
 

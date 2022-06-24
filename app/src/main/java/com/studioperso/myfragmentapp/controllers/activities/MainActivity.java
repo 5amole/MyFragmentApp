@@ -25,12 +25,13 @@ public class MainActivity extends BaseActivity implements MainFragment.OnButtonC
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    protected void configureDesign() {
         configureAndShowMainFragment();
         configureAndShowDetailFragment();
     }
+
+    @Override
+    protected void updateDesign() { }
 
     // --------------
     // FRAGMENTS

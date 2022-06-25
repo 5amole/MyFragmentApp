@@ -58,7 +58,7 @@ public class DetailFragment extends BaseFragment<FragmentDetailBinding> {
                 mShowText.setText(R.string.text_horror);
                 break;
             default:
-                mShowText.setText(R.string.text_fail);
+                mShowText.setText(R.string.text_no_button_selected);
         }
     }
 }

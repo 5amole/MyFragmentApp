@@ -8,5 +8,5 @@
     <string name="text_happy">You\'re a very good programmer !</string>
     <string name="text_sad">I do believe that Jon Snow is going to die in next season…</string>
     <string name="text_horror">Maybe Game of Thrones next season will get back in 2040 ?</string>
-    <string name="text_fail">Nope</string>
+    <string name="text_no_button_selected">Veuillez sélectionner un choix</string>
 </resources>

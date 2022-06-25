@@ -1,17 +1,15 @@
 package com.studioperso.myfragmentapp.controllers.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
 import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
 import com.studioperso.myfragmentapp.controllers.fragments.MainFragment;
+import com.studioperso.myfragmentapp.databinding.ActivityMainBinding;
 
-public class MainActivity extends BaseActivity implements MainFragment.OnButtonClickedListener {
+public class MainActivity extends BaseActivity<ActivityMainBinding> implements MainFragment.OnButtonClickedListener {
 
     private MainFragment mMainFragment;
     private DetailFragment mDetailFragment;
@@ -19,9 +17,8 @@ public class MainActivity extends BaseActivity implements MainFragment.OnButtonC
     // --------------
     // BASE METHODS
     // --------------
-    @Override
-    protected int getFragmentLayout() {
-        return R.layout.activity_main;
+    protected ActivityMainBinding getBinding() {
+        return ActivityMainBinding.inflate(getLayoutInflater());
     }
 
     @Override
@@ -55,7 +52,7 @@ public class MainActivity extends BaseActivity implements MainFragment.OnButtonC
         mDetailFragment = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.frame_layout_detail);
 
         //A - We only add DetailFragment in Tablet mode (If found frame_layout_detail)
-        if (mDetailFragment == null && findViewById(R.id.frame_layout_detail) != null) {
+        if (mDetailFragment == null && mBinding.frameLayoutDetail != null) {
             mDetailFragment = new DetailFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.frame_layout_detail, mDetailFragment)

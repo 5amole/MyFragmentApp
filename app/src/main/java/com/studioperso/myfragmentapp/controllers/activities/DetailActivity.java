@@ -1,24 +1,20 @@
 package com.studioperso.myfragmentapp.controllers.activities;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
+import com.studioperso.myfragmentapp.databinding.ActivityDetailBinding;
 
-import android.os.Bundle;
-
-public class DetailActivity extends BaseActivity {
+public class DetailActivity extends BaseActivity<ActivityDetailBinding> {
 
     private DetailFragment mDetailFragment;
 
     // --------------
     // BASE METHODS
     // --------------
-    @Override
-    protected int getFragmentLayout() {
-        return R.layout.activity_detail;
+    protected ActivityDetailBinding getBinding() {
+        return ActivityDetailBinding.inflate(getLayoutInflater());
     }
 
     @Override
@@ -36,10 +32,8 @@ public class DetailActivity extends BaseActivity {
     // TOOLBAR
     // --------------
     private void configureToolbar(){
-        // Get the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         // Sets the Toolbar
-        setSupportActionBar(toolbar);
+        setSupportActionBar(mBinding.detailToolbar);
 
         ActionBar returnUp = getSupportActionBar();
         if (returnUp != null)

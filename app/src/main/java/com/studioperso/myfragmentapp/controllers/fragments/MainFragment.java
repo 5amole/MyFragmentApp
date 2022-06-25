@@ -3,7 +3,6 @@ package com.studioperso.myfragmentapp.controllers.fragments;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
-import androidx.viewbinding.ViewBinding;
 
 import android.view.LayoutInflater;
 import android.view.View;

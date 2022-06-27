@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.widget.Toolbar;
+
 import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
 import com.studioperso.myfragmentapp.controllers.fragments.MainFragment;
@@ -17,10 +19,16 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
     // --------------
     // BASE METHODS
     // --------------
+    // ACTIVITY GETTER
+    @Override
     protected ActivityMainBinding getBinding() {
         return ActivityMainBinding.inflate(getLayoutInflater());
     }
 
+    @Override
+    protected Toolbar getToolbar(){ return mBinding.mainToolbar.toolbarRoot; }
+
+    // ACTIVITY DESIGN
     @Override
     protected void configureDesign() {
         configureAndShowMainFragment();
@@ -30,6 +38,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
     @Override
     protected void updateDesign() { }
 
+    // TOOLBAR
+    @Override
+    protected void customToolbar() { }
     // --------------
     // FRAGMENTS
     // --------------
@@ -47,6 +58,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
                     .commit();
         }
     }
+
     // Only for tablet display
     private void configureAndShowDetailFragment(){
         mDetailFragment = (DetailFragment) getSupportFragmentManager().findFragmentById(R.id.frame_layout_detail);
@@ -59,6 +71,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
                     .commit();
         }
     }
+
     // --------------
     // CallBack
     // --------------

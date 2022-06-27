@@ -1,6 +1,7 @@
 package com.studioperso.myfragmentapp.controllers.activities;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
@@ -13,13 +14,18 @@ public class DetailActivity extends BaseActivity<ActivityDetailBinding> {
     // --------------
     // BASE METHODS
     // --------------
+    // ACTIVITY GETTER
+    @Override
     protected ActivityDetailBinding getBinding() {
         return ActivityDetailBinding.inflate(getLayoutInflater());
     }
 
     @Override
+    protected Toolbar getToolbar(){ return mBinding.detailToolbar.toolbarRoot; }
+
+    // ACTIVITY DESIGN
+    @Override
     protected void configureDesign() {
-        configureToolbar();
         configureAndShowDetailFragment();
     }
 
@@ -28,13 +34,10 @@ public class DetailActivity extends BaseActivity<ActivityDetailBinding> {
         updateDetailFragmentTextWithTag();
     }
 
-    // --------------
     // TOOLBAR
-    // --------------
-    private void configureToolbar(){
-        // Sets the Toolbar
-        setSupportActionBar(mBinding.detailToolbar);
-
+    @Override
+    protected void customToolbar(){
+        // Sets the Toolbar return button
         ActionBar returnUp = getSupportActionBar();
         if (returnUp != null)
             returnUp.setDisplayHomeAsUpEnabled(true);

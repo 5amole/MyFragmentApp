@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">MyFragmentApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="detail_text_detail">I have no details to show you…</string>
     <string name="text_happy_button">SHOW HAPPY DETAIL</string>
     <string name="text_sad_button">SHOW SAD DETAIL</string>

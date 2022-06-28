@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyFragmentApp</string>
     <string name="detail_text_detail">I have no details to show you…</string>
+    <string name="param_text_detail"> Param Fragment !!</string>
     <string name="text_happy_button">SHOW HAPPY DETAIL</string>
     <string name="text_sad_button">SHOW SAD DETAIL</string>
     <string name="text_horror_button">SHOW HORRIBLE DETAIL</string>

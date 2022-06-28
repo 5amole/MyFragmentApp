@@ -2,7 +2,10 @@ package com.studioperso.myfragmentapp.controllers.activities;
 
 import android.content.Intent;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -41,10 +44,31 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
     // TOOLBAR
     @Override
     protected void customToolbar() { }
+
+    // ACTIVITY LIFECYCLE
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //2 - Inflate the menu and add it to the Toolbar
+        getMenuInflater().inflate(R.menu.menu_activity_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //3 - Handle actions on menu items
+        if (item.getItemId() == R.id.menu_activity_main_params) {
+            Toast.makeText(this, "Il n'y a rien à paramétrer ici, passez votre chemin...",
+                    Toast.LENGTH_LONG).show();
+            launchParamActivity();
+            return true;
+        }
+        else
+            return super.onOptionsItemSelected(item);
+    }
+
     // --------------
     // FRAGMENTS
     // --------------
-
     private void configureAndShowMainFragment(){
         // A - Get FragmentManager (Support) and Try to find existing instance of fragment in FrameLayout container
         mMainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.frame_layout_main);
@@ -89,9 +113,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> implements M
         }
     }
 
+    // --------------
+    // ACTIVITY LAUNCHING
+    // --------------
     private void launchDetailActivity(int buttonTag){
         Intent intendDetail = new Intent(this, DetailActivity.class);
         intendDetail.putExtra(DetailActivity.EXTRA_BUTTON_TAG, buttonTag);
         startActivity(intendDetail);
+    }
+
+    private void launchParamActivity(){
+        Intent intendParam = new Intent(this, ParamActivity.class);
+        startActivity(intendParam);
     }
 }

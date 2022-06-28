@@ -23,16 +23,18 @@
             </intent-filter>
         </activity>
 
-        <!-- A child of the main activity -->
+        <!-- Children of the main activity -->
         <activity
             android:name=".controllers.activities.DetailActivity"
             android:label="Detail"
             android:parentActivityName=".controllers.activities.MainActivity" >
 
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".controllers.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".controllers.activities.ParamActivity"
+            android:label="Param"
+            android:parentActivityName=".controllers.activities.MainActivity">
+
         </activity>
 
     </application>

@@ -1,45 +1,43 @@
 package com.studioperso.myfragmentapp.controllers.activities;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.studioperso.myfragmentapp.R;
 import com.studioperso.myfragmentapp.controllers.fragments.DetailFragment;
+import com.studioperso.myfragmentapp.databinding.ActivityDetailBinding;
 
-import android.os.Bundle;
-
-public class DetailActivity extends AppCompatActivity {
-
-    // 1 - Create static variable to identify Intent
-    public static final String EXTRA_BUTTON_TAG = "com.openclassrooms.myfragmentapp.Controllers.Activities.DetailActivity.EXTRA_BUTTON_TAG";
+public class DetailActivity extends BaseActivity<ActivityDetailBinding> {
 
     private DetailFragment mDetailFragment;
 
+    // --------------
+    // BASE METHODS
+    // --------------
+    // ACTIVITY GETTER
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+    protected ActivityDetailBinding getBinding() {
+        return ActivityDetailBinding.inflate(getLayoutInflater());
+    }
 
-        configureToolbar();
+    @Override
+    protected Toolbar getToolbar(){ return mBinding.detailToolbar.toolbarRoot; }
+
+    // ACTIVITY DESIGN
+    @Override
+    protected void configureDesign() {
         configureAndShowDetailFragment();
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
+    protected void updateDesign() {
         updateDetailFragmentTextWithTag();
     }
 
-    // --------------
     // TOOLBAR
-    // --------------
-    private void configureToolbar(){
-        // Get the toolbar view inside the activity layout
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
-        // Sets the Toolbar
-        setSupportActionBar(toolbar);
-
+    @Override
+    protected void customToolbar(){
+        // Sets the Toolbar return button
         ActionBar returnUp = getSupportActionBar();
         if (returnUp != null)
             returnUp.setDisplayHomeAsUpEnabled(true);
